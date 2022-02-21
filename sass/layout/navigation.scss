@@ -1,0 +1,142 @@
+.nav {
+  display: flex;
+  width: 100%;
+  position: relative;
+  background-color: #121212;
+  align-items: center;
+  min-height: 5.6rem;
+  padding: 0.4rem;
+}
+
+.nav__main-container {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  justify-content: space-between;
+  padding: 0 1.2rem;
+  width: 128rem;
+}
+
+.nav__logo-container {
+  display: flex;
+  align-items: center;
+  margin-right: 0.8rem;
+}
+.nav__logo:hover {
+  cursor: pointer;
+}
+
+.nav__icon-menu-container {
+  display: flex;
+  align-items: center;
+  height: 3.6rem;
+  max-width: 100%;
+  padding: 0 1.6rem;
+  &:hover {
+    background-color: rgba(256, 256, 256, 0.08);
+    cursor: pointer;
+    border-radius: 0.4rem;
+  }
+}
+.nav__menu-icon {
+  opacity: 0.5;
+  margin: 0 0.4rem 0 -0.6rem;
+}
+.nav__text-menu {
+  font-family: Roboto, Helvetica, sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: white;
+  padding-bottom: 0.1rem;
+  letter-spacing: 0.02rem;
+}
+
+.nav-search-container {
+  margin-left: 0.8rem;
+  width: 100%;
+}
+.nav-search-form {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.nav-search-form:focus-within {
+  box-shadow: 0 0 0 0.2rem $color-yellow;
+  border-radius: 0.4rem 0.4rem 0.4rem 0.4rem;
+}
+.nav-search-category-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+  background-color: white;
+  height: 3.125rem;
+  border-radius: 0.4rem 0 0 0.4rem;
+  padding-right: 0.8rem;
+}
+.nav-search-category-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 1px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.nav-search-category-container:hover {
+  background-color: rgba(256, 256, 256, 0.92);
+  cursor: pointer;
+}
+
+.nav-search-category-text-element {
+  font-size: 1.4rem;
+  font-weight: 500;
+  padding: 0 0 0 0.8rem;
+  color: black;
+}
+
+.icon-arrow-drop-down {
+  padding: 0.3rem 0 0 0.8rem;
+  height: 1.3rem;
+  fill: black;
+}
+.flyout-menu {
+  position: absolute;
+  background-color: white;
+  height: 60rem;
+  width: 20rem;
+}
+.flyout-menu.hidden {
+  display: none;
+}
+
+.nav-search-input-container {
+  display: flex;
+  width: 100%;
+}
+.nav-search-input {
+  height: 3.125rem;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  width: 100%;
+  border: none;
+}
+.nav-search-input:focus {
+  outline: none;
+}
+
+::placeholder {
+  font-size: 1.3rem;
+}
+.nav-search-button {
+  width: 5rem;
+  border: none;
+  background-color: white;
+  color: #fff;
+  border-radius: 0 0.4rem 0.4rem 0;
+}
+
+.nav-search-magnifier {
+  opacity: 0.5;
+}
