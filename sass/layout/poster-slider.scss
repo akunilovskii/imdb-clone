@@ -50,9 +50,13 @@
   right: 0rem;
   left: 9rem;
   padding: 1.8rem 0.8rem 0;
+  cursor: pointer;
+  &:hover .item__detail-icon {
+    color: $color-yellow;
+  }
 }
 
-.item__detail-icon {
-  width: 2.4rem;
-  height: 2.4rem;
+.icon-duration-block {
+  // width: 2.4rem;
+  // height: 2.4rem;
 }
