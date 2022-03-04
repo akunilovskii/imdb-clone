@@ -31,6 +31,7 @@
   align-items: center;
   height: 3.6rem;
   max-width: 100%;
+  color: white;
   padding: 0 1.6rem;
   &:hover {
     background-color: rgba(256, 256, 256, 0.08);
@@ -46,7 +47,6 @@
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: white;
   padding-bottom: 0.1rem;
   letter-spacing: 0.02rem;
 }

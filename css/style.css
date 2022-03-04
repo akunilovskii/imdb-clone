@@ -14,6 +14,7 @@ body {
   background-color: black;
   font-family: Roboto, sans-serif;
   box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 .nav {
@@ -50,6 +51,7 @@ body {
   align-items: center;
   height: 3.6rem;
   max-width: 100%;
+  color: white;
   padding: 0 1.6rem;
 }
 .nav__icon-menu-container:hover {
@@ -67,7 +69,6 @@ body {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 1.4rem;
   font-weight: 700;
-  color: white;
   padding-bottom: 0.1rem;
   letter-spacing: 0.02rem;
 }
@@ -173,33 +174,36 @@ body {
 .container {
   display: flex;
   width: 128rem;
-  margin: 0 auto;
+  margin: 0.8rem auto;
 }
 
-.container__trailer {
+.carousel {
   display: flex;
+  align-items: flex-start;
   position: relative;
-  height: 45rem;
-  margin-right: 1.5rem;
-  width: 84.3333333333rem;
+  height: 100%;
+  margin: 0 0.8rem;
+  width: 84.9rem;
   overflow: hidden;
 }
 
-.container__trailer-slider {
-  display: flex;
-  align-items: center;
+.carousel__slider-wrapper {
+  position: relative;
+  align-items: flex-start;
+  width: 100%;
+  height: 55rem;
 }
 
-.container__trailer-slide {
+.slide {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  transition: transform 0.4s;
+  transition: transform 1s;
+  padding-bottom: 7rem;
 }
 
 .trailer__img {
-  width: 100%;
+  width: 84.9rem;
   object-fit: cover;
 }
 
@@ -207,28 +211,113 @@ body {
   color: white;
   position: absolute;
   border-radius: 0.4rem;
-  top: 50%;
+  top: 30%;
   border: 1px solid rgba(255, 255, 255, 0.7);
   padding: 2rem 1.2rem;
   background-color: rgba(0, 0, 0, 0.3);
-  transform: translateY(-50%);
+  z-index: 1;
 }
 .trailer__button:hover {
   color: #f5c518;
   cursor: pointer;
 }
 .trailer__button.prev {
+  z-index: 1;
   left: 0;
 }
 .trailer__button.next {
   right: 0;
 }
 
-.poster__list {
+.poster {
+  position: absolute;
+  bottom: 0;
+  left: 1.6rem;
+  max-width: 16.5rem;
+  z-index: 1;
+}
+.poster .ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4rem;
+  height: 5.6rem;
+  z-index: 1;
+  cursor: pointer;
+}
+.poster .ribbon:hover {
+  opacity: 0.5;
+}
+.poster .ribbon .ribbon__watchlist {
+  width: 100%;
+  height: auto;
+  transition: fill 0.5 ease-in-out;
+}
+.poster .ribbon .ribbon__watchlist .watchlist-ribbon__bg-ribbon {
+  fill: white;
+}
+
+.poster__img {
+  width: 100%;
+}
+
+.poster__list-container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  margin: 0 8rem 0 4rem;
+  position: relative;
+}
+
+.poster__list-title {
+  height: 5.2rem;
   color: #f5c518;
   background-color: black;
-  font-size: 1.6rem;
-  width: 42.1666666667rem;
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.4rem 0;
+}
+
+.poster__list-items {
+  display: flex;
+  width: 30rem;
+  height: 45rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.poster__list-item {
+  height: 15rem;
+  width: 100%;
+  position: absolute;
+  color: white;
+  font-size: 1.5rem;
+  transition: transform 1s;
+}
+.poster__list-item :not(:nth-child(1)) {
+  margin: 0.5rem;
+}
+
+.item__img-wrapper {
+  width: 8.8rem;
+}
+
+.item__img {
+  width: 100%;
+}
+
+.item__details-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 0rem;
+  right: 0rem;
+  left: 9rem;
+  padding: 1.8rem 0.8rem 0;
+}
+
+.item__detail-icon {
+  width: 2.4rem;
+  height: 2.4rem;
 }
 
 /*# sourceMappingURL=style.css.map */

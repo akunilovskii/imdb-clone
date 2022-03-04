@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@500;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" src="src/index.js"></script>
+    <script type="module" src="src/controller.js"></script>
     <title>IMDB Clone</title>
   </head>
   <body>
@@ -18,7 +18,7 @@
       <div class="nav__main-container">
         <div class="nav__logo-container"><img src="/icons/nav-logo.svg" alt="Main logo" class="nav__logo"></div>
         <div class="nav__icon-menu-container">
-          <img class="nav__menu-icon" src="/icons/hamburger-icon.svg" alt="Menu icon"></img>
+          <span class="nav__menu-icon" src="/icons/hamburger-icon.svg" alt="Menu icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M4 18h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zm0-5h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1s.45 1 1 1zM3 7c0 .55.45 1 1 1h16c.55 0 1-.45 1-1s-.45-1-1-1H4c-.55 0-1 .45-1 1z"></path></svg></span>
       
             <div class="nav__text-menu">Menu</div>
         </div>
@@ -49,19 +49,39 @@
     </nav>
 
     <section class="container">
-        <div class="container__trailer">
-          <div class="container__trailer-slider">
-            <!-- // Place for slides insertion -->
-          </div>
-                
+        <div class="carousel">
           <div class="trailer__button prev" id="prev_slide">
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="trailer__left-icon" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M18.378 23.369c.398-.402.622-.947.622-1.516 0-.568-.224-1.113-.622-1.515l-8.249-8.34 8.25-8.34a2.16 2.16 0 0 0 .548-2.07A2.132 2.132 0 0 0 17.428.073a2.104 2.104 0 0 0-2.048.555l-9.758 9.866A2.153 2.153 0 0 0 5 12.009c0 .568.224 1.114.622 1.515l9.758 9.866c.808.817 2.17.817 2.998-.021z"></path></svg>
           </div>
           <div class="trailer__button next" id="next_slide">
             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="trailer__right-icon"  viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M5.622.631A2.153 2.153 0 0 0 5 2.147c0 .568.224 1.113.622 1.515l8.249 8.34-8.25 8.34a2.16 2.16 0 0 0-.548 2.07c.196.74.768 1.317 1.499 1.515a2.104 2.104 0 0 0 2.048-.555l9.758-9.866a2.153 2.153 0 0 0 0-3.03L8.62.61C7.812-.207 6.45-.207 5.622.63z"></path></svg>
           </div>
+          <div class="carousel__slider-wrapper">
+       
+                
+          
       </div>
-      <div class="poster__list">Up next</div>
+    </div>
+      <div class="poster__list-container">
+        <div class="poster__list-title">Up next</div>
+        <div class="poster__list-items"></div>
+    
+    <!-- <div class="poster__list-item">
+          <div class="item__img-wrapper"><img class="item__img" src="img/2-poster.jpg" alt=""></div>
+          <div class="item__details-wrapper">
+            <div class="icon-duration-block">
+               <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="item__detail-icon" id="iconContext-play-circle-outline-large-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M10.803 15.932l4.688-3.513a.498.498 0 0 0 0-.803l-4.688-3.514a.502.502 0 0 0-.803.402v7.026c0 .412.472.653.803.402z"></path><path d="M12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zm0-1c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z"></path></svg>
+              <span class="item__detail-duration">2:01</span>
+          </div>
+            <div class="list__item__detail">
+              <span class="item__detail__title">Movie1</span>
+            </div>
+            <div class="list__item__detail">
+              <span class="item__detail__subtitle">Watch the New Trailer</span>
+            </div>
+          </div> 
+        </div> -->
+      </div>
     </section>
   </body>
 </html>

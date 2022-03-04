@@ -1,0 +1,42 @@
+export const moviesSet = [
+  {
+    id: 1,
+    title: "The Endgame",
+    image: "1-trailer.jpg",
+    poster: "1-poster.jpg",
+    duration: "2:01",
+    subtitle: "Watch the New Trailer",
+  },
+  {
+    id: 2,
+    title: "Doctor Strange in the Multiverse of Madness",
+    image: "2-trailer.jpg",
+    poster: "2-poster.jpg",
+    duration: "2:17",
+    subtitle: "Watch the New Trailer",
+  },
+  {
+    id: 3,
+    title: "The Lord of the Rings: The Rings of Power",
+    image: "3-trailer.jpg",
+    poster: "3-poster.jpg",
+    duration: "1:01",
+    subtitle: "Watch the New Trailer",
+  },
+  {
+    id: 4,
+    title: "Fantastic Beasts: The Secrets of Dumbledore",
+    image: "4-trailer.jpg",
+    poster: "4-poster.jpg",
+    duration: "2:44",
+    subtitle: "Watch the New Trailer",
+  },
+  {
+    id: 5,
+    title: "Bullet Train",
+    image: "5-trailer.jpg",
+    poster: "5-poster.jpg",
+    duration: "2:37",
+    subtitle: "Watch the Action-Packed Trailer",
+  },
+];
