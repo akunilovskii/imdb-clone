@@ -12,7 +12,7 @@ html {
 
 body {
   background-color: black;
-  font-family: Roboto, sans-serif;
+  font-family: Arial, Roboto, Helvetica, sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -53,24 +53,30 @@ body {
   max-width: 100%;
   color: white;
   padding: 0 1.6rem;
+  transition: background-color 0.2s;
 }
 .nav__icon-menu-container:hover {
   background-color: rgba(255, 255, 255, 0.08);
   cursor: pointer;
   border-radius: 0.4rem;
 }
+.nav__icon-menu-container:hover .nav__icon {
+  opacity: 1;
+  transition: opacity 0.2s;
+}
 
-.nav__menu-icon {
-  opacity: 0.5;
+.nav__icon {
+  color: white;
+  opacity: 0.54;
   margin: 0 0.4rem 0 -0.6rem;
 }
 
 .nav__text-menu {
   font-family: Roboto, Helvetica, sans-serif;
   font-size: 1.4rem;
-  font-weight: 700;
-  padding-bottom: 0.1rem;
-  letter-spacing: 0.02rem;
+  letter-spacing: 0.028rem;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
 }
 
 .nav-search-container {
@@ -96,7 +102,6 @@ body {
   background-color: white;
   height: 3.125rem;
   border-radius: 0.4rem 0 0 0.4rem;
-  padding-right: 0.8rem;
 }
 
 .nav-search-category-container::after {
@@ -115,15 +120,18 @@ body {
 }
 
 .nav-search-category-text-element {
+  display: flex;
+  align-items: center;
   font-size: 1.4rem;
   font-weight: 500;
   padding: 0 0 0 0.8rem;
-  color: black;
+  letter-spacing: 0.028rem;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .icon-arrow-drop-down {
-  padding: 0.3rem 0 0 0.8rem;
-  height: 1.3rem;
+  vertical-align: middle;
+  font-size: 1.4rem;
   fill: black;
 }
 
@@ -145,7 +153,7 @@ body {
 
 .nav-search-input {
   height: 3.125rem;
-  padding-left: 1rem;
+  padding-left: 0.8rem;
   font-size: 1.3rem;
   width: 100%;
   border: none;
@@ -156,7 +164,8 @@ body {
 }
 
 ::placeholder {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.025rem;
 }
 
 .nav-search-button {
