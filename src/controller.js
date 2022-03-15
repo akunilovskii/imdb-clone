@@ -21,20 +21,36 @@ trailerSlider.initializeItemsOrder("Y", "poster__list-item", 1);
 //////////////////////////////////////////////////////////////////////////
 // BUTTON CONTROLLER /////////////////////////////////////////////////////
 
-document.querySelectorAll(".trailer__button").forEach((btn) =>
-  btn.addEventListener("click", (e) => {
-    if (typeof counter === "number") {
-      stopSlideShow();
-      counter = "";
-    }
-    if (e.currentTarget.classList.contains("next")) {
-      slideChangeHandler("next");
-    } else {
-      slideChangeHandler("prev");
-    }
-  })
-);
+const buttons = document.querySelectorAll(".trailer__button");
 
+function eventListenerFunction(e) {
+  if (typeof counter === "number") {
+    stopSlideShow();
+    counter = "";
+  }
+  if (e.currentTarget.classList.contains("next")) {
+    slideChangeHandler("next");
+  } else {
+    slideChangeHandler("prev");
+  }
+}
+
+function addListeners() {
+  buttons.forEach((btn) =>
+    btn.addEventListener("click", eventListenerFunction)
+  );
+}
+
+function removeListeners() {
+  buttons.forEach((btn) =>
+    btn.removeEventListener("click", eventListenerFunction)
+  );
+  setTimeout(() => {
+    addListeners();
+  }, 500);
+}
+
+addListeners();
 //////////////////////////////////////////////////////////////////////////
 // SLIDESHOW CONTROLLER //////////////////////////////////////////////////
 
@@ -55,6 +71,7 @@ function stopSlideShow() {
 // SLIDE CONTROLLER ///////////////////////////////////////////////////
 
 function slideChangeHandler(direction) {
+  removeListeners();
   trailerSlider.itemMove(direction);
   trailerSlider.initializeItemsOrder("X", "slide", 1);
   posterSlider.itemMove(direction);

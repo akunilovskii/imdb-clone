@@ -1,6 +1,7 @@
 class trailerSlider {
   _data;
   _parentEl = document.querySelector(".carousel__slider-wrapper");
+  
   render(data) {
     this._data = data;
     const markup = this.generateMarkup();
