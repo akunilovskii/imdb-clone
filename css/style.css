@@ -192,7 +192,7 @@ body {
   position: relative;
   height: 100%;
   margin: 0 0.8rem;
-  width: 84.9rem;
+  width: 85.3333333333rem;
   overflow: hidden;
 }
 
@@ -212,7 +212,7 @@ body {
 }
 
 .trailer__img {
-  width: 84.9rem;
+  width: 100%;
   object-fit: cover;
 }
 
@@ -272,10 +272,15 @@ body {
 
 .poster__list-container {
   display: flex;
+  flex-grow: 1;
   flex-direction: column;
   justify-items: center;
-  margin: 0 8rem 0 4rem;
+  margin: 0 0.8rem 0 0.4rem;
   position: relative;
+}
+
+.poster__list-background {
+  background: linear-gradient(to top, black, 90%, gray);
 }
 
 .poster__list-title {
@@ -289,43 +294,75 @@ body {
 
 .poster__list-items {
   display: flex;
-  width: 30rem;
+  width: 100%;
   height: 45rem;
   position: relative;
   overflow: hidden;
 }
 
 .poster__list-item {
-  height: 15rem;
-  width: 100%;
+  display: flex;
   position: absolute;
+  height: 15rem;
   color: white;
   font-size: 1.5rem;
+  padding-left: 1.6rem;
+  width: 100%;
   transition: transform 0.5s;
-}
-.poster__list-item :not(:nth-child(1)) {
-  margin: 0.5rem;
 }
 
 .item__img-wrapper {
+  position: relative;
+  padding: 1.6rem 0 0;
   width: 8.8rem;
 }
 
 .item__img {
+  position: absolute;
+  left: 0;
+  right: 0;
   width: 100%;
 }
 
 .item__details-wrapper {
   position: absolute;
-  width: 100%;
-  top: 0rem;
-  right: 0rem;
-  left: 9rem;
+  left: 11.2rem;
   padding: 1.8rem 0.8rem 0;
   cursor: pointer;
 }
 .item__details-wrapper:hover .item__detail-icon {
   color: #f5c518;
+}
+
+.item__detail-title {
+  font-size: 1.6rem;
+  line-height: 2rem;
+}
+
+.item__detail-subtitle {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2rem;
+}
+
+.item__details-block {
+  margin-bottom: 0.3rem;
+}
+
+.item__detail-icon {
+  width: 3.2rem;
+  height: 3.2rem;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+
+.item__detail-duration {
+  display: inline-block;
+  font-family: Roboto;
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.7);
+  vertical-align: baseline;
+  line-height: 2rem;
 }
 
 .footer__links {
