@@ -12,7 +12,7 @@ html {
 
 body {
   background-color: black;
-  font-family: Arial, Roboto, Helvetica, sans-serif;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   overflow-y: scroll;
 }
@@ -363,6 +363,10 @@ body {
   color: rgba(255, 255, 255, 0.7);
   vertical-align: baseline;
   line-height: 2rem;
+}
+
+footer {
+  padding: 1.6rem 0;
 }
 
 .footer__links {
