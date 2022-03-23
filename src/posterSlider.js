@@ -37,10 +37,10 @@ class posterSlider {
             <span class="item__detail-duration">${movie["duration"]}</span>
         </div>
           <div class="item__detail-title">
-            <span class="item__detail__title">${movie["title"]}</span>
+            <span>${movie["title"]}</span>
           </div>
           <div class="item__detail-subtitle">
-            <span class="item__detail__subtitle">Watch the New Trailer</span>
+            <span>Watch the New Trailer</span>
           </div>
         </div> 
       </div>`;
