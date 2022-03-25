@@ -8,7 +8,7 @@ class posterSlider {
   }
 
   itemMove(direction) {
-    if (direction === "next" || direction === "auto") {
+    if (direction === "next") {
       this._parentEl.appendChild(this._parentEl.firstElementChild);
     } else {
       this._parentEl.prepend(this._parentEl.lastElementChild);

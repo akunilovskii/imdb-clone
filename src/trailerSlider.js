@@ -10,7 +10,7 @@ class trailerSlider {
   }
 
   itemMove(direction) {
-    if (direction === "next" || direction === "auto") {
+    if (direction === "next") {
       this._parentEl.appendChild(this._parentEl.firstElementChild);
     } else {
       this._parentEl.prepend(this._parentEl.lastElementChild);
@@ -18,7 +18,6 @@ class trailerSlider {
   }
 
   initializeItemsOrder(directionXY, itemClass, k) {
-    console.log("initialize");
     document.querySelectorAll(`.${itemClass}`).forEach((s, i) => {
       s.style.transform = `translate${directionXY}(${100 * (i - k)}%)`;
     });
