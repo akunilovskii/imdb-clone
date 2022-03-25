@@ -209,10 +209,11 @@ body {
   left: 0;
   transition: transform 0.5s;
   padding-bottom: 7rem;
+  width: 100%;
 }
 
 .trailer__img {
-  width: 100%;
+  width: 85.3333333333rem;
   object-fit: cover;
 }
 

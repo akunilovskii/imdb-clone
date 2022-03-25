@@ -1,7 +1,7 @@
 class trailerSlider {
   _data;
   _parentEl = document.querySelector(".carousel__slider-wrapper");
-  
+
   render(data) {
     this._data = data;
     const markup = this.generateMarkup();
@@ -28,13 +28,11 @@ class trailerSlider {
     return this._data
       .map((movie, i) => {
         return `
-    <div class="slide" style="transform: translateX(${
-      100 * i
-    }%)"><img src="img/${
+    <div class="slide" style="transform: translateX(${100 * i}%)"><img src="${
           movie["image"]
         }" alt="Trailer image" class="trailer__img" id="trailer-img-${i}">
           <div class="poster">
-            <img class="poster__img" src="img/${
+            <img class="poster__img" src="${
               movie["poster"]
             }" alt="Poster image" id="poster-img-${i}">
           <div class="ribbon">

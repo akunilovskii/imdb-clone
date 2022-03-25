@@ -27,9 +27,10 @@
   left: 0;
   transition: transform $transition-time;
   padding-bottom: 7rem;
+  width: 100%;
 }
 .trailer__img {
-  width: 100%;
+  width: calc($container-width/3 * 2);
   object-fit: cover;
 }
 

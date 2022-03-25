@@ -28,7 +28,7 @@ class posterSlider {
         <div class="poster__list-item" style="transform:  translateY(${
           100 * (i - 1)
         }%)">
-        <div class="item__img-wrapper"><img class="item__img" src="img/${
+        <div class="item__img-wrapper"><img class="item__img" src="${
           movie["poster"]
         }" alt=""></div>
         <div class="item__details-wrapper">
