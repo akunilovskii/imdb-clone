@@ -1,6 +1,5 @@
 import { TRANSITIONSPEED } from "./config.js";
 
-const _parentEl = document.querySelector(".carousel");
 let buttons;
 
 const markup = `<div class="trailer__button prev" id="prev_slide">
@@ -11,11 +10,11 @@ const markup = `<div class="trailer__button prev" id="prev_slide">
 </div>`;
 
 export function render() {
+  const _parentEl = document.querySelector(".carousel");
   _parentEl.insertAdjacentHTML("afterbegin", markup);
-  console.log("buttons rendered");
 }
 
-export function addListeners(handler) {
+export function addButtonListeners(handler) {
   buttons = document.querySelectorAll(".trailer__button");
   buttons.forEach((btn) =>
     btn.addEventListener("click", function (e) {

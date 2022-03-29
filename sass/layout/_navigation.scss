@@ -2,7 +2,7 @@
   display: flex;
   width: 100%;
   position: relative;
-  background-color: #121212;
+  background-color: rgb(18, 18, 18);
   align-items: center;
   min-height: 5.6rem;
   padding: 0.4rem;
@@ -36,7 +36,7 @@
   transition: background-color 0.2s;
   // -webkit-font-smoothing: antialiased;
   &:hover {
-    background-color: rgba(256, 256, 256, 0.08);
+    background-color: $hover-background;
     cursor: pointer;
     border-radius: 0.4rem;
   }

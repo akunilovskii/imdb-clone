@@ -1,49 +1,17 @@
-import { API_CONF_URL, API_URL } from "./config.js";
-import { AJAX } from "./helpers.js";
+import {
+  moviesSet,
+  API_CONF_URL,
+  API_KEY,
+  API_URL,
+  API_VIDEO_URL,
+} from "./config.js";
+import { stopSlideShow, AJAX, counter } from "./helpers.js";
+import * as movieTrailer from "./movieTrailer.js";
 
-export let moviesSet;
-//  = [
-//   {
-//     id: 1,
-//     title: "The Endgame",
-//     image: "1-trailer.jpg",
-//     poster: "1-poster.jpg",
-//     duration: "2:01",
-//     subtitle: "Watch the New Trailer",
-//   },
-//   {
-//     id: 2,
-//     title: "Doctor Strange in the Multiverse of Madness",
-//     image: "2-trailer.jpg",
-//     poster: "2-poster.jpg",
-//     duration: "2:17",
-//     subtitle: "Watch the New Trailer",
-//   },
-//   {
-//     id: 3,
-//     title: "The Lord of the Rings: The Rings of Power",
-//     image: "3-trailer.jpg",
-//     poster: "3-poster.jpg",
-//     duration: "1:01",
-//     subtitle: "Watch the New Trailer",
-//   },
-//   {
-//     id: 4,
-//     title: "Fantastic Beasts: The Secrets of Dumbledore",
-//     image: "4-trailer.jpg",
-//     poster: "4-poster.jpg",
-//     duration: "2:44",
-//     subtitle: "Watch the New Trailer",
-//   },
-//   {
-//     id: 5,
-//     title: "Bullet Train",
-//     image: "5-trailer.jpg",
-//     poster: "5-poster.jpg",
-//     duration: "2:37",
-//     subtitle: "Watch the Action-Packed Trailer",
-//   },
-// ];
+// const configData = await AJAX(API_CONF_URL);
+
+const YOUTUBE = `https://www.youtube.com/watch?v=`;
+export let posterListTitle;
 
 const arrayGenresYears = {
   genres: [
@@ -61,32 +29,92 @@ function getGenreYear(key) {
     Math.ceil(Math.random() * arrayGenresYears[key].length - 1)
   ];
 }
-const year = getGenreYear("year");
-const { genre } = getGenreYear("genres");
+
 export const loadMovies = async function (userGenre = undefined) {
-  const { genreId } =
-    arrayGenresYears.genres[
-      arrayGenresYears.genres.findIndex(
-        (el) => el.genre === (userGenre ?? genre)
-      )
-    ];
+  const { genre } = { genre: "Science Fiction", genreId: 878 };
+  // getGenreYear("genres");
+  const year = 2019;
+  // getGenreYear("year");
+  const { genreId } = { genre: "Science Fiction", genreId: 878 };
+
+  // arrayGenresYears.genres[
+  //   arrayGenresYears.genres.findIndex(
+  //     (el) => el.genre === (userGenre ?? genre)
+  //   )
+  // ];
 
   const data = await AJAX(API_URL, year, genreId);
 
-  return (moviesSet = [
-    ...data.map((el) => {
-      return {
-        id: el.id,
-        title: el.title,
-        image: `http://image.tmdb.org/t/p/w1280/${el.backdrop_path}`,
-        poster: `http://image.tmdb.org/t/p/w92/${el.poster_path}`,
-        duration: el.vote_average,
-        subtitle: "Watch the New Trailer",
-      };
-    }),
-  ]);
+  posterListTitle = `Top 10 ${genre} movies of ${year}`;
+
+  moviesSet.loadedMovies = data.map((el) => {
+    return {
+      id: el.id,
+      title: el.title,
+      image: `http://image.tmdb.org/t/p/w1280${el.backdrop_path}`,
+      poster: `http://image.tmdb.org/t/p/w92${el.poster_path}`,
+      duration: el.vote_average,
+      subtitle: "Watch the New Trailer",
+      overview: el.overview,
+    };
+  });
 };
 
-// const configData = await AJAX(API_CONF_URL);
+export function getSelectedMovie() {
+  if (typeof counter === "number") {
+    stopSlideShow();
+  }
 
-export const posterListTitle = `Top 10 ${genre} movies of ${year}`;
+  const movieId = moviesSet.selectedMovie.id;
+  const [movie] = moviesSet.loadedMovies.filter(
+    (el) => el.id.toString() === movieId.toString()
+  );
+
+  moviesSet.selectedMovie = {
+    id: movie.id,
+    title: movie.title,
+    poster: movie.poster,
+    overview: movie.overview,
+  };
+
+  // getStatus(movie, movieId);
+}
+
+export function getStatus(movie, movieId) {
+  console.log(movieId);
+  console.log(movie);
+  console.log(moviesSet.selectedMovie);
+}
+
+export async function getYoutubeIds() {
+  const { results: trailerLinks } = await AJAX(
+    `${API_VIDEO_URL}${moviesSet.selectedMovie.id}/videos?${API_KEY}&language=en-US}`
+  );
+  const tempFilteredLinks = trailerLinks.filter((el) =>
+    el.name.toLowerCase().includes("official")
+  );
+  moviesSet.selectedMovie.youtubeIds = (
+    tempFilteredLinks.length > 1 ? tempFilteredLinks : trailerLinks.slice(0, 5)
+  ).map((el, i) => {
+    if (el.site === "YouTube") {
+      return `${el.key}`;
+    }
+  });
+  console.log(moviesSet.selectedMovie.youtubeIds + "get youtubeIds");
+}
+
+export function renderPosterListTitle() {
+  document.querySelector(".poster__list-title").innerHTML = posterListTitle;
+}
+
+export function newMovieListener(handler) {
+  Array.from(document.querySelectorAll("a")).forEach((a) => {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      moviesSet.selectedMovie.id = e.currentTarget
+        .getAttribute("href")
+        .slice(1);
+      handler();
+    });
+  });
+}

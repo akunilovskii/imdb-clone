@@ -1,7 +1,9 @@
 class posterSlider {
   _data;
-  _parentEl = document.querySelector(".poster__list-items");
+  _parentEl;
   render(data) {
+    this._parentEl = document.querySelector(".poster__list-items");
+
     this._data = data;
     const markup = this.generateMarkup();
     this._parentEl.insertAdjacentHTML("afterbegin", markup);
@@ -21,13 +23,22 @@ class posterSlider {
     });
   }
 
+  //   containerMarkup = `<div class="poster__list-container">
+  //             <div class="poster__list-background">
+  //               <div class="poster__list-title">Up next</div>
+  //               <div class="poster__list-items"></div>
+  //             </div>
+  //                 </div>
+  // `;
+
   generateMarkup() {
     return this._data
       .map((movie, i) => {
         return `
-        <div class="poster__list-item" style="transform:  translateY(${
-          100 * (i - 1)
-        }%)">
+        <a href="#${movie["id"]}">
+        <div class="poster__list-item" id=${
+          movie["id"]
+        }  style="transform:  translateY(${100 * (i - 1)}%)">
         <div class="item__img-wrapper"><img class="item__img" src="${
           movie["poster"]
         }" alt=""></div>
@@ -43,7 +54,8 @@ class posterSlider {
             <span>Watch the New Trailer</span>
           </div>
         </div> 
-      </div>`;
+      </div>
+      </a>`;
       })
       .join("");
   }
