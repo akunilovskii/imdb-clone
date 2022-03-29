@@ -1,8 +1,6 @@
 import { SLIDESHOWSPEED, moviesSet } from "./config.js";
 import { slideChangeHandler } from "./controller.js";
 
-export let counter = 0;
-
 export const AJAX = async function (url, year, genre) {
   try {
     if (year || genre) {
@@ -12,7 +10,6 @@ export const AJAX = async function (url, year, genre) {
     }
     if (!year && !genre) {
       const res = await fetch(url);
-      console.log(res);
       const results = await res.json();
       if (!res.ok) throw new Error(`${data.message} (${res.status})`);
       return results;
@@ -26,9 +23,9 @@ export const AJAX = async function (url, year, genre) {
 // SLIDESHOW //////////////////////////////////////////////////
 
 const onLoadSlideShow = setInterval(() => {
-  if (counter < moviesSet.loadedMovies.length) {
+  if (moviesSet.counter < moviesSet.loadedMovies.length) {
     slideChangeHandler("next", true);
-    counter++;
+    moviesSet.counter++;
   } else {
     stopSlideShow();
   }
@@ -36,6 +33,6 @@ const onLoadSlideShow = setInterval(() => {
 
 export function stopSlideShow() {
   clearInterval(onLoadSlideShow);
-  counter = "";
+  moviesSet.counter = "";
   console.log("Slideshow stopped");
 }

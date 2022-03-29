@@ -5,12 +5,11 @@ import {
   API_URL,
   API_VIDEO_URL,
 } from "./config.js";
-import { stopSlideShow, AJAX, counter } from "./helpers.js";
+import { stopSlideShow, AJAX } from "./helpers.js";
 import * as movieTrailer from "./movieTrailer.js";
 
 // const configData = await AJAX(API_CONF_URL);
 
-const YOUTUBE = `https://www.youtube.com/watch?v=`;
 export let posterListTitle;
 
 const arrayGenresYears = {
@@ -31,17 +30,14 @@ function getGenreYear(key) {
 }
 
 export const loadMovies = async function (userGenre = undefined) {
-  const { genre } = { genre: "Science Fiction", genreId: 878 };
-  // getGenreYear("genres");
-  const year = 2019;
-  // getGenreYear("year");
-  const { genreId } = { genre: "Science Fiction", genreId: 878 };
-
-  // arrayGenresYears.genres[
-  //   arrayGenresYears.genres.findIndex(
-  //     (el) => el.genre === (userGenre ?? genre)
-  //   )
-  // ];
+  const { genre } = getGenreYear("genres");
+  const year = getGenreYear("year");
+  const { genreId } =
+    arrayGenresYears.genres[
+      arrayGenresYears.genres.findIndex(
+        (el) => el.genre === (userGenre ?? genre)
+      )
+    ];
 
   const data = await AJAX(API_URL, year, genreId);
 
@@ -51,8 +47,8 @@ export const loadMovies = async function (userGenre = undefined) {
     return {
       id: el.id,
       title: el.title,
-      image: `http://image.tmdb.org/t/p/w1280${el.backdrop_path}`,
-      poster: `http://image.tmdb.org/t/p/w92${el.poster_path}`,
+      image: `https://image.tmdb.org/t/p/w1280${el.backdrop_path}`,
+      poster: `https://image.tmdb.org/t/p/w92${el.poster_path}`,
       duration: el.vote_average,
       subtitle: "Watch the New Trailer",
       overview: el.overview,
@@ -61,7 +57,7 @@ export const loadMovies = async function (userGenre = undefined) {
 };
 
 export function getSelectedMovie() {
-  if (typeof counter === "number") {
+  if (typeof moviesSet.counter === "number") {
     stopSlideShow();
   }
 
@@ -100,7 +96,6 @@ export async function getYoutubeIds() {
       return `${el.key}`;
     }
   });
-  console.log(moviesSet.selectedMovie.youtubeIds + "get youtubeIds");
 }
 
 export function renderPosterListTitle() {

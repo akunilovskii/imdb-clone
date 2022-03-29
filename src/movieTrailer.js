@@ -4,7 +4,6 @@ import { moviesSet } from "./config.js";
 const _parentEl = document.querySelector(".main-wrapper");
 let playlist = undefined;
 export function render() {
-  console.log(moviesSet.selectedMovie.youtubeIds + "from movieTrailer");
   const list = moviesSet.selectedMovie.youtubeIds;
   if (list.length > 1) {
     playlist = list;

@@ -2,7 +2,7 @@
 
 import * as Model from "./model.js";
 import * as buttons from "./buttons.js";
-import * as config from "./config.js";
+import { moviesSet } from "./config.js";
 import * as helpers from "./helpers.js";
 import posterSlider from "./posterSlider.js";
 import trailerSlider from "./trailerSlider.js";
@@ -14,8 +14,8 @@ import * as movieTrailer from "./movieTrailer.js";
 async function loadHomeScreen() {
   await Model.loadMovies();
   trailerSlider.rendercontainerMarkup();
-  trailerSlider.render(config.moviesSet.loadedMovies);
-  posterSlider.render(config.moviesSet.loadedMovies);
+  trailerSlider.render(moviesSet.loadedMovies);
+  posterSlider.render(moviesSet.loadedMovies);
   buttons.render();
   buttons.addButtonListeners(slideChangeHandler);
   Model.renderPosterListTitle();
@@ -27,7 +27,7 @@ async function loadHomeScreen() {
 async function loadTrailerScreen() {
   Model.getSelectedMovie();
   await Model.getYoutubeIds();
-  movieTrailer.render(config.moviesSet.selectedMovie.youtubeIds);
+  movieTrailer.render(moviesSet.selectedMovie.youtubeIds);
   movieTrailer.backButtonListener(loadHomeScreen);
 }
 
@@ -36,8 +36,8 @@ async function loadTrailerScreen() {
 
 export function slideChangeHandler(direction, slideshow = false) {
   if (
-    (typeof helpers.counter === "number" && slideshow === false) ||
-    helpers.counter === config.moviesSet.loadedMovies.length
+    (typeof moviesSet.counter === "number" && slideshow === false) ||
+    moviesSet.counter === moviesSet.loadedMovies.length
   ) {
     helpers.stopSlideShow();
   }

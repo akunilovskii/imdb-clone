@@ -1,8 +1,13 @@
+import { moviesSet } from "./config.js";
+
 class trailerSlider {
   _data;
   _parentEl;
-  let;
+
   render(data) {
+    console.log(moviesSet.counter);
+    moviesSet.counter = 0;
+    console.log(moviesSet.counter);
     this._parentEl = document.querySelector(".carousel__slider-wrapper");
     this._data = data;
     const markup = this.generateMarkup();

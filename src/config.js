@@ -7,6 +7,7 @@ export const moviesSet = {
     youtubeIds: [],
   },
   loadedMovies: [],
+  counter: "",
 };
 export const SLIDESHOWSPEED = 5;
 export const TRANSITIONSPEED = 500;
