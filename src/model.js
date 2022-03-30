@@ -30,10 +30,9 @@ function getGenreYear(key) {
 }
 
 export const loadMovies = async function (userGenre = undefined) {
-  const { genre } = getGenreYear("genres");
-  const year = getGenreYear("year");
-  const { genreId } =
-    arrayGenresYears.genres[
+  const { genre } =   getGenreYear("genres");
+  const year =   getGenreYear("year");
+  const { genreId } = arrayGenresYears.genres[
       arrayGenresYears.genres.findIndex(
         (el) => el.genre === (userGenre ?? genre)
       )
@@ -73,14 +72,9 @@ export function getSelectedMovie() {
     overview: movie.overview,
   };
 
-  // getStatus(movie, movieId);
 }
 
-export function getStatus(movie, movieId) {
-  console.log(movieId);
-  console.log(movie);
-  console.log(moviesSet.selectedMovie);
-}
+
 
 export async function getYoutubeIds() {
   const { results: trailerLinks } = await AJAX(

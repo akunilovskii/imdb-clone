@@ -28,10 +28,13 @@
   transition: transform $transition-time;
   padding-bottom: 7rem;
   width: 100%;
-}
-.trailer__img {
-  width: calc($container-width/3 * 2);
-  object-fit: cover;
+  &:hover .trailer__detail-icon {
+    color: $color-yellow;
+  }
+  .trailer__img {
+    width: calc($container-width/3 * 2);
+    object-fit: cover;
+  }
 }
 
 .trailer__button {
@@ -58,12 +61,19 @@
   }
 }
 
+.slide__basement {
+  display: flex;
+}
+
 .poster {
   position: absolute;
   bottom: 0;
   left: 1.6rem;
-  max-width: 16.5rem;
+  width: 16.5rem;
   z-index: 1;
+  &:hover {
+    cursor: default;
+  }
 
   & .ribbon {
     position: absolute;
@@ -91,4 +101,57 @@
 
 .poster__img {
   width: 100%;
+}
+
+.trailer__basement-details {
+  display: flex;
+  position: absolute;
+  color: white;
+  left: 17.7rem;
+  right: 0;
+  bottom: 0;
+  margin: 1.6rem 1.6rem 0 1.6rem;
+  cursor: pointer;
+  &:hover .trailer__detail-icon {
+    color: $color-yellow;
+  }
+}
+.trailer__detail-icon-wrapper {
+  margin-right: 1.6rem;
+}
+.trailer__detail-icon {
+  width: 7.2rem;
+  height: 7.2rem;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+
+.trailer__details-text {
+  display: flex;
+  flex-direction: column;
+}
+.trailer__details-block {
+  display: flex;
+  width: 100%;
+}
+
+.trailer__detail-title {
+  font-size: 3.4rem;
+  line-height: 4rem;
+  width: 100%;
+}
+
+.trailer__detail-duration {
+  align-self: flex-end;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  margin-left: 3.2rem;
+  color: $white-70;
+  vertical-align: baseline;
+}
+
+.trailer__detail-subtitle {
+  font-size: 2rem;
+  color: $white-70;
+  line-height: 2.4rem;
 }

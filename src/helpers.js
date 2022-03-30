@@ -34,5 +34,4 @@ const onLoadSlideShow = setInterval(() => {
 export function stopSlideShow() {
   clearInterval(onLoadSlideShow);
   moviesSet.counter = "";
-  console.log("Slideshow stopped");
 }

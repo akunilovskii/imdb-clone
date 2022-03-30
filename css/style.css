@@ -211,8 +211,10 @@ body {
   padding-bottom: 7rem;
   width: 100%;
 }
-
-.trailer__img {
+.slide:hover .trailer__detail-icon {
+  color: #f5c518;
+}
+.slide .trailer__img {
   width: 85.3333333333rem;
   object-fit: cover;
 }
@@ -239,12 +241,19 @@ body {
   right: 0;
 }
 
+.slide__basement {
+  display: flex;
+}
+
 .poster {
   position: absolute;
   bottom: 0;
   left: 1.6rem;
-  max-width: 16.5rem;
+  width: 16.5rem;
   z-index: 1;
+}
+.poster:hover {
+  cursor: default;
 }
 .poster .ribbon {
   position: absolute;
@@ -269,6 +278,62 @@ body {
 
 .poster__img {
   width: 100%;
+}
+
+.trailer__basement-details {
+  display: flex;
+  position: absolute;
+  color: white;
+  left: 17.7rem;
+  right: 0;
+  bottom: 0;
+  margin: 1.6rem 1.6rem 0 1.6rem;
+  cursor: pointer;
+}
+.trailer__basement-details:hover .trailer__detail-icon {
+  color: #f5c518;
+}
+
+.trailer__detail-icon-wrapper {
+  margin-right: 1.6rem;
+}
+
+.trailer__detail-icon {
+  width: 7.2rem;
+  height: 7.2rem;
+  margin-right: 0.5rem;
+  vertical-align: baseline;
+}
+
+.trailer__details-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trailer__details-block {
+  display: flex;
+  width: 100%;
+}
+
+.trailer__detail-title {
+  font-size: 3.4rem;
+  line-height: 4rem;
+  width: 100%;
+}
+
+.trailer__detail-duration {
+  align-self: flex-end;
+  font-size: 2rem;
+  line-height: 2.8rem;
+  margin-left: 3.2rem;
+  color: rgba(255, 255, 255, 0.7);
+  vertical-align: baseline;
+}
+
+.trailer__detail-subtitle {
+  font-size: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 2.4rem;
 }
 
 .poster__list-container {
