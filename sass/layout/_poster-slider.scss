@@ -80,13 +80,11 @@
   width: 3.2rem;
   height: 3.2rem;
   margin-right: 0.5rem;
-  vertical-align: baseline;
 }
 .item__detail-duration {
   display: inline-block;
-  font-family: Roboto;
   font-size: 1.4rem;
+  vertical-align: super;
   color: $white-70;
-  vertical-align: baseline;
   line-height: 2rem;
 }

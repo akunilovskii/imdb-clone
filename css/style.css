@@ -419,15 +419,13 @@ body {
   width: 3.2rem;
   height: 3.2rem;
   margin-right: 0.5rem;
-  vertical-align: baseline;
 }
 
 .item__detail-duration {
   display: inline-block;
-  font-family: Roboto;
   font-size: 1.4rem;
+  vertical-align: super;
   color: rgba(255, 255, 255, 0.7);
-  vertical-align: baseline;
   line-height: 2rem;
 }
 
