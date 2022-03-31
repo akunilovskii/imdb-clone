@@ -5,7 +5,7 @@ class trailerSlider {
   _parentEl;
 
   render(data) {
-    moviesSet.counter = 0;
+    
     this._parentEl = document.querySelector(".carousel__slider-wrapper");
     this._data = data;
     const markup = this.generateMarkup();
@@ -67,12 +67,15 @@ class trailerSlider {
       .map((movie, i) => {
         return `
         <a href=#${movie["id"]}>
-            <div class="slide" id=${movie["id"]} style="transform: translateX(${
+        
+        <div class="slide" id=${movie["id"]} style="transform: translateX(${
           100 * i
         }%)">
-            <img src="${
-              movie["image"]
-            }" alt="Trailer image" class="trailer__img" id="trailer-img-${i}"/>
+        <img src="${
+          movie["image"]
+        }" alt="Trailer image" class="trailer__img" id="trailer-img-${i}"/>
+        <div class="slide__overlay-dark"></div>
+         <div class="slide__overlay-light"></div>
             <div class="slide__basement">
             <div class="poster">
                   <img class="poster__img" src="${
@@ -88,19 +91,21 @@ class trailerSlider {
                   </div>
 
                   <div class="trailer__details-text">
-                  <div class="trailer__details-block">
-                    <span class="trailer__detail-title">${movie["title"]}</span>
-                    <span class="trailer__detail-duration">${
-                      movie["duration"]
-                    }</span>
+                    <div class="trailer__details-block">
+                      <span class="trailer__detail-title">${
+                        movie["title"]
+                      }</span>
+                      <span class="trailer__detail-duration">${
+                        movie["duration"]
+                      }</span>
+                    </div>
+                    <div class="trailer__detail-subtitle">
+                      Watch the New Trailer
+                    </div>
                   </div>
-                  <div class="trailer__detail-subtitle">
-                    Watch the New Trailer
-                  </div>
-                  </div>
-        </div>
-        </div>
-      </div>
+              </div>
+            </div>
+          </div>
     </a>`;
       })
       .join("");

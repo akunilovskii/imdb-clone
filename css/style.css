@@ -203,6 +203,24 @@ body {
   height: 55rem;
 }
 
+.slide__overlay-dark {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, transparent 65%, rgba(0, 0, 0, 0.7) 77%, black 85%, black 100%);
+}
+
+.slide__overlay-light {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0, transparent 65%, rgba(0, 0, 0, 0.35) 83.5%, rgba(0, 0, 0, 0.75) 100%);
+}
+
 .slide {
   position: absolute;
   top: 0;
@@ -234,7 +252,6 @@ body {
   cursor: pointer;
 }
 .trailer__button.prev {
-  z-index: 1;
   left: 0;
 }
 .trailer__button.next {
@@ -250,7 +267,6 @@ body {
   bottom: 0;
   left: 1.6rem;
   width: 16.5rem;
-  z-index: 1;
 }
 .poster:hover {
   cursor: default;

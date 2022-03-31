@@ -22,16 +22,22 @@ export const AJAX = async function (url, year, genre) {
 ///////////////////////////////////////////////////////////////
 // SLIDESHOW //////////////////////////////////////////////////
 
-const onLoadSlideShow = setInterval(() => {
-  if (moviesSet.counter < moviesSet.loadedMovies.length) {
-    slideChangeHandler("next", true);
-    moviesSet.counter++;
-  } else {
-    stopSlideShow();
+export function controlSlideShow(value= "start") {
+  if (value !== "start") {
+    moviesSet.counter = moviesSet.loadedMovies.length;
   }
-}, SLIDESHOWSPEED * 1000);
+  const slideShowId = setInterval(slideShow, SLIDESHOWSPEED * 1000);
+  function slideShow() {
+    if (moviesSet.counter < moviesSet.loadedMovies.length) {
+      slideChangeHandler("next", true);
+      moviesSet.counter++;
+    } else {
+      stopSlideShow(slideShowId);
+    }
+  }
+}
 
-export function stopSlideShow() {
-  clearInterval(onLoadSlideShow);
+export function stopSlideShow(id) {
+  clearInterval(id);
   moviesSet.counter = "";
 }

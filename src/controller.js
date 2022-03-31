@@ -22,6 +22,7 @@ async function loadHomeScreen() {
   Model.newMovieListener(loadTrailerScreen);
   trailerSlider.initializeItemsOrder("X", "slide", 1);
   trailerSlider.initializeItemsOrder("Y", "poster__list-item", 1);
+  helpers.controlSlideShow();
 }
 
 async function loadTrailerScreen() {
@@ -39,7 +40,7 @@ export function slideChangeHandler(direction, slideshow = false) {
     (typeof moviesSet.counter === "number" && slideshow === false) ||
     moviesSet.counter === moviesSet.loadedMovies.length
   ) {
-    helpers.stopSlideShow();
+    helpers.controlSlideShow("stop");
   }
 
   trailerSlider.itemMove(direction);
