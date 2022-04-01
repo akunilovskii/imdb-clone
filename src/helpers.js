@@ -22,22 +22,28 @@ export const AJAX = async function (url, year, genre) {
 ///////////////////////////////////////////////////////////////
 // SLIDESHOW //////////////////////////////////////////////////
 
-export function controlSlideShow(value= "start") {
-  if (value !== "start") {
+export function controlSlideShow(value) {
+  if (
+    value !== "start" &&
+    moviesSet.counter !== moviesSet.loadedMovies.length
+  ) {
     moviesSet.counter = moviesSet.loadedMovies.length;
   }
-  const slideShowId = setInterval(slideShow, SLIDESHOWSPEED * 1000);
-  function slideShow() {
-    if (moviesSet.counter < moviesSet.loadedMovies.length) {
-      slideChangeHandler("next", true);
-      moviesSet.counter++;
-    } else {
-      stopSlideShow(slideShowId);
+  if (value === "start") {
+    moviesSet.counter = 0;
+    const slideShowId = setInterval(slideShow, SLIDESHOWSPEED * 1000);
+    function slideShow() {
+      if (moviesSet.counter < moviesSet.loadedMovies.length) {
+        slideChangeHandler("next", true);
+        moviesSet.counter++;
+      } else {
+        stopSlideShow(slideShowId);
+      }
     }
   }
 }
 
 export function stopSlideShow(id) {
+  console.log("slideshow stopped");
   clearInterval(id);
-  moviesSet.counter = "";
 }

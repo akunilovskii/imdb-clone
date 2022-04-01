@@ -22,12 +22,13 @@ async function loadHomeScreen() {
   Model.newMovieListener(loadTrailerScreen);
   trailerSlider.initializeItemsOrder("X", "slide", 1);
   trailerSlider.initializeItemsOrder("Y", "poster__list-item", 1);
-  helpers.controlSlideShow();
+  helpers.controlSlideShow("start");
 }
 
 async function loadTrailerScreen() {
   Model.getSelectedMovie();
   await Model.getYoutubeIds();
+  helpers.controlSlideShow("stop");
   movieTrailer.render(moviesSet.selectedMovie.youtubeIds);
   movieTrailer.backButtonListener(loadHomeScreen);
 }
@@ -36,10 +37,7 @@ async function loadTrailerScreen() {
 // SLIDE CONTROLLER //////////////////////////////////////////////////////
 
 export function slideChangeHandler(direction, slideshow = false) {
-  if (
-    (typeof moviesSet.counter === "number" && slideshow === false) ||
-    moviesSet.counter === moviesSet.loadedMovies.length
-  ) {
+  if (slideshow === false) {
     helpers.controlSlideShow("stop");
   }
 
