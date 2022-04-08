@@ -232,7 +232,8 @@ body {
 .slide:hover .trailer__detail-icon {
   color: #f5c518;
 }
-.slide .trailer__img {
+
+.trailer__img {
   width: 85.3333333333rem;
   object-fit: cover;
 }
@@ -270,6 +271,9 @@ body {
 }
 .poster:hover {
   cursor: default;
+}
+.poster:hover + .trailer__basement-details .trailer__detail-icon {
+  color: white;
 }
 .poster .ribbon {
   position: absolute;
@@ -393,6 +397,10 @@ body {
   transition: transform 0.5s;
 }
 
+.item__details-link {
+  flex-grow: 1;
+}
+
 .item__img-wrapper {
   position: relative;
   padding: 1.6rem 0 0;
@@ -411,6 +419,7 @@ body {
   left: 11.2rem;
   padding: 1.8rem 0.8rem 0;
   cursor: pointer;
+  color: white;
 }
 .item__details-wrapper:hover .item__detail-icon {
   color: #f5c518;

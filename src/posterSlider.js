@@ -35,27 +35,30 @@ class posterSlider {
     return this._data
       .map((movie, i) => {
         return `
-        <a href="#${movie["id"]}">
         <div class="poster__list-item" id=${
           movie["id"]
         }  style="transform:  translateY(${100 * (i - 1)}%)">
-        <div class="item__img-wrapper"><img class="item__img" src="${
-          movie["poster"]
-        }" alt=""></div>
-        <div class="item__details-wrapper">
-          <div class="item__details-block">
-             <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="item__detail-icon" id="iconContext-play-circle-outline-large-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M10.803 15.932l4.688-3.513a.498.498 0 0 0 0-.803l-4.688-3.514a.502.502 0 0 0-.803.402v7.026c0 .412.472.653.803.402z"></path><path d="M12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zm0-1c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z"></path></svg>
-            <span class="item__detail-duration">${movie["duration"]}</span>
-        </div>
-          <div class="item__detail-title">
-            <span>${movie["title"]}</span>
-          </div>
-          <div class="item__detail-subtitle">
-            <span>Watch the New Trailer</span>
-          </div>
-        </div> 
+            <div class="item__img-wrapper"><img class="item__img" src="${
+              movie["poster"]
+            }" alt=""></div>
+                <a href="javascript: void(0)" id="${movie["id"]}" class="item__details-link">
+                <div class="item__details-wrapper">
+                  <div class="item__details-block">
+                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" class="item__detail-icon" id="iconContext-play-circle-outline-large-inline" viewBox="0 0 24 24" fill="currentColor" role="presentation"><path d="M10.803 15.932l4.688-3.513a.498.498 0 0 0 0-.803l-4.688-3.514a.502.502 0 0 0-.803.402v7.026c0 .412.472.653.803.402z"></path><path d="M12 24C5.373 24 0 18.627 0 12S5.373 0 12 0s12 5.373 12 12-5.373 12-12 12zm0-1c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z"></path></svg>
+                    <span class="item__detail-duration">${
+                      movie["duration"]
+                    }</span>
+                </div>
+                  <div class="item__detail-title">
+                    <span>${movie["title"]}</span>
+                  </div>
+                  <div class="item__detail-subtitle">
+                    <span>Watch the New Trailer</span>
+                  </div>
+            </div> 
+            </a>
       </div>
-      </a>`;
+      `;
       })
       .join("");
   }

@@ -64,10 +64,10 @@
   &:hover .trailer__detail-icon {
     color: $color-yellow;
   }
-  .trailer__img {
-    width: calc($container-width/3 * 2);
-    object-fit: cover;
-  }
+}
+.trailer__img {
+  width: calc($container-width/3 * 2);
+  object-fit: cover;
 }
 
 .trailer__button {
@@ -103,6 +103,9 @@
   width: 16.5rem;
   &:hover {
     cursor: default;
+  }
+  &:hover + .trailer__basement-details .trailer__detail-icon {
+    color: white;
   }
 
   & .ribbon {

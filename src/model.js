@@ -102,9 +102,7 @@ export function newMovieListener(handler) {
   Array.from(document.querySelectorAll("a")).forEach((a) => {
     a.addEventListener("click", function (e) {
       e.preventDefault();
-      moviesSet.selectedMovie.id = e.currentTarget
-        .getAttribute("href")
-        .slice(1);
+      moviesSet.selectedMovie.id = e.currentTarget.getAttribute("id");
       handler();
     });
   });
