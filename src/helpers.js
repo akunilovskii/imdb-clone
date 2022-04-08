@@ -10,9 +10,9 @@ export const AJAX = async function (url, year, genre) {
     }
     if (!year && !genre) {
       const res = await fetch(url);
-      const results = await res.json();
+      const data = await res.json();
       if (!res.ok) throw new Error(`${data.message} (${res.status})`);
-      return results;
+      return data;
     }
   } catch (err) {
     console.log(err);

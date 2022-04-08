@@ -11,8 +11,10 @@ import * as movieTrailer from "./movieTrailer.js";
 //////////////////////////////////////////////////////////////////////////
 // DOM INIT  /////////////////////////////////////////////////////////////
 
-async function loadHomeScreen() {
-  await Model.loadMovies();
+async function loadHomeScreen(back) {
+  if (!back) {
+    await Model.loadMovies();
+  }
   trailerSlider.rendercontainerMarkup();
   trailerSlider.render(moviesSet.loadedMovies);
   posterSlider.render(moviesSet.loadedMovies);

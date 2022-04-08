@@ -5,7 +5,8 @@ import {
   API_URL,
   API_VIDEO_URL,
 } from "./config.js";
-import { stopSlideShow, AJAX } from "./helpers.js";
+
+import { AJAX } from "./helpers.js";
 import * as movieTrailer from "./movieTrailer.js";
 
 // const configData = await AJAX(API_CONF_URL);
@@ -74,15 +75,22 @@ export async function getYoutubeIds() {
   const { results: trailerLinks } = await AJAX(
     `${API_VIDEO_URL}${moviesSet.selectedMovie.id}/videos?${API_KEY}&language=en-US}`
   );
-  const tempFilteredLinks = trailerLinks.filter((el) =>
-    el.name.toLowerCase().includes("official")
-  );
-  moviesSet.selectedMovie.youtubeIds = (
-    tempFilteredLinks.length > 1 ? tempFilteredLinks : trailerLinks.slice(0, 5)
-  ).map((el, i) => {
-    if (el.site === "YouTube") {
-      return `${el.key}`;
+  let tempFilteredLinks = trailerLinks.filter((el) => {
+    if (
+      el.name.toLowerCase().includes("official") &&
+      el.site.toLowerCase() === "youtube"
+    ) {
+      return el;
     }
+  });
+
+  tempFilteredLinks =
+    tempFilteredLinks.length > 0
+      ? tempFilteredLinks.slice(0, 3)
+      : trailerLinks.slice(0, 3);
+
+  moviesSet.selectedMovie.youtubeIds = tempFilteredLinks.map((el) => {
+    return `${el.key}`;
   });
 }
 

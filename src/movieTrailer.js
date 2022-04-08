@@ -23,7 +23,7 @@ export function backButtonListener(handler) {
     .querySelector(".trailer__window-back-button")
     .addEventListener("click", function (e) {
       e.preventDefault();
-      handler();
+      handler("back");
     });
 }
 
@@ -45,7 +45,7 @@ function generateMarkup(firstId, playlist) {
       src="https://www.youtube.com/embed/${firstId}?version=3&${
     playlist ? `${`playlist=${playlist}`}` : ""
   }&autoplay=1&mute=1&cc_load_policy=1&controls=1&modestbranding=1&rel=0&showinfo=1"
-      frameborder="0" allowfullscreen></iframe>
+      frameborder="0" allowfullscreen="1"></iframe>
         </div>
       </div>
       <div class="trailer__details">
