@@ -5,7 +5,6 @@ class trailerSlider {
   _parentEl;
 
   render(data) {
-    
     this._parentEl = document.querySelector(".carousel__slider-wrapper");
     this._data = data;
     const markup = this.generateMarkup();
@@ -66,7 +65,7 @@ class trailerSlider {
     return this._data
       .map((movie, i) => {
         return `
-        <a href=#${movie["id"]}>
+        <a  href="javascript: void(0)" id="${movie["id"]}">
         
         <div class="slide" id=${movie["id"]} style="transform: translateX(${
           100 * i
