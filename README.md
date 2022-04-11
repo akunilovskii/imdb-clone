@@ -1,5 +1,5 @@
 # imdb-clone by Aleksandr Kunilovskii
-My partial copy of IMDB website
+My partial copy of IMDB website made using only vanilla JavaScript and HTML / CSS (SASS)
 
 Live copy: https://imdb-clone-akunilovskii.netlify.app/
 
