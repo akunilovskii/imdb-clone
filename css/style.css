@@ -400,6 +400,12 @@ body {
 .item__details-link {
   flex-grow: 1;
 }
+.item__details-link:hover {
+  cursor: default;
+}
+.item__details-link:hover .item__details-wrapper {
+  cursor: pointer;
+}
 
 .item__img-wrapper {
   position: relative;

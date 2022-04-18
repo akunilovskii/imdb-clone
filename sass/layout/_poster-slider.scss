@@ -41,6 +41,12 @@
 
 .item__details-link {
   flex-grow: 1;
+  &:hover {
+    cursor: default;
+  }
+  &:hover .item__details-wrapper {
+    cursor: pointer;
+  }
 }
 
 .item__img-wrapper {
